@@ -10,4 +10,26 @@ class HomeController extends BaseController
     {
       return view('welcome');  
     }
+    
+    public function primeFactors()
+    {
+        $number = $_GET["number"];
+        $copy = $number;
+        
+        while($copy != 1)
+        {
+            $decomposition[] = 2;
+            $copy = $copy / 2;
+        }
+        
+        $decomposition_json = json_encode($decomposition);
+        
+        $json = <<<JSON
+{ "number" : $number , "decomposition" : $decomposition_json }
+JSON;
+        
+        echo $json;
+        
+        return view('primeFactors');
+    }
 }
