@@ -34,4 +34,9 @@ JSON;
         
         return view('primeFactors');
     }
+
+    public function astroport()
+    {
+        echo "<p id='astroport-name'>Astroport</p>";
+    }
 }
