@@ -1,0 +1,13 @@
+language: php
+php:
+  - 5.5
+
+before_install: composer install --dev
+
+script: php vendor/bin/phpunit tests --coverage-clover build/logs/clover.xml
+
+after_success: CODECLIMATE_REPO_TOKEN=219c96d0ea4132952f75cebbf0da246df17976f9b6a9d5bbec85778be8e738a0 ./vendor/bin/test-reporter
+
+addons:
+  code_climate:
+    repo_token: 219c96d0ea4132952f75cebbf0da246df17976f9b6a9d5bbec85778be8e738a0 
