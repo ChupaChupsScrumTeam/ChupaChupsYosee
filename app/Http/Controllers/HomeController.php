@@ -24,6 +24,8 @@ class HomeController extends BaseController
         
         $decomposition_json = json_encode($decomposition);
         
+        header("Content-Type: application/json");
+        
         $json = <<<JSON
 { "number" : $number , "decomposition" : $decomposition_json }
 JSON;
