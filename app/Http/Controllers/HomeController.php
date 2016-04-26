@@ -48,12 +48,10 @@ JSON;
     public function astroport()
     {
         echo "<p id='astroport-name'>Astroport</p>";
-        echo "<ul>";
         for ($i = 1; $i <= 3; $i++){
-            echo "<li id='gate" & $i & "'> Gate " & $i;
-            echo "<dl id='ship" & $i & "'> Ship " & $i & "</dl>";
-            echo "</li>";
+            echo "<ul id='gate" . $i . "'> Gate " . $i;
+            echo "<li id='ship" . $i . "'> Ship " . $i . "</li>";
+            echo "</ul>";
         }
-        echo "</ul>";
     }
 }
