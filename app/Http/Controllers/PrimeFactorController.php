@@ -6,17 +6,8 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class PrimeFactorController extends BaseController
 {
-    public function primeFactors()
+    private function decompose($number)
     {
-        $number = $_GET["number"];
-
-        if(!is_numeric($number))
-        {
-            $json = array("number" => $number,
-                          "error" => "not a number");
-            return response()->json($json);
-        }
-
         $decomposition = array();
         $copy = $number;
 
@@ -35,6 +26,22 @@ class PrimeFactorController extends BaseController
                 break;
             }
         }
+
+        return $decomposition;
+    }
+    
+    public function primeFactors()
+    {
+        $number = $_GET["number"];
+
+        if(!is_numeric($number))
+        {
+            $json = array("number" => $number,
+                          "error" => "not a number");
+            return response()->json($json);
+        }
+
+        $decomposition = $this->decompose($number);
         
         $json = array("number" => $number,
                       "decomposition" => $decomposition);
@@ -42,6 +49,31 @@ class PrimeFactorController extends BaseController
     }
 
     private function getPrimes() {
-        return array(2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101);
+        $number = 2;
+        $primes = array(2,3,5);
+        
+        for($i = 6; $i < 5000; $i++)
+        {
+            $isPrime = $this->isPrime($i);
+            if($isPrime)
+            {
+                $primes[] = $i;
+            }
+        }
+        return $primes;
+    }
+    
+    private function isPrime($number)
+    {
+        for($i = 2; $i < $number; $i++)
+        {
+            $mod = ($number % $i);
+            if($mod === 0)
+            {
+                return false;
+            }
+        }
+        
+        return true;
     }
 }
