@@ -16,15 +16,13 @@ class HomeController extends BaseController
         header("Content-Type: application/json");
         
         $number = $_GET["number"];
-
-        $error = <<<ERR
-{ "number" : $number , "error" : "not a number" }
-ERR;
+        
+        $error = array("number" => $number, "error" => "not a number");
 
         if(!is_numeric($number))
         {
             
-            echo $error;
+            echo json_encode($error);
             return view('primeFactors');
         }
 
@@ -38,8 +36,6 @@ ERR;
         }
         
         $decomposition_json = json_encode($decomposition);
-        
-        
         
         $json = <<<JSON
 { "number" : $number , "decomposition" : $decomposition_json }
