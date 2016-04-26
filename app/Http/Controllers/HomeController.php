@@ -75,7 +75,7 @@ JSON;
             }
             echo "<form>";
             echo "Ship <input type='text' id='ship' name='ship'/>";
-            echo "<input type='submit' id='dock' value='Dock' action='#'/>";
+            echo "<input type='button' id='dock' value='Dock' action='#'/>";
             echo "</form>";
         }
         
