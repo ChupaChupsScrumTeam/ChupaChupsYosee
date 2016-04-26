@@ -47,16 +47,29 @@ JSON;
 
     public function astroport()
     {
-        echo "<p id='astroport-name'>Astroport</p>";
+        if (isset($_GET['ship'])){
+            echo "<p id='astroport-name'>Astroport</p>";
 
-        for ($i = 1; $i <= 3; $i++){
-            echo "<ul id='gate-" . $i . "'> Gate " . $i;
-            echo "<li id='ship-" . $i . "'>Ship " . $i . (!empty($_GET['ship']) ? " " . $_GET['ship'] : "");
-            echo "</li>";
-            echo "</ul>";
+            for ($i = 1; $i <= 3; $i++){
+                echo "<ul id='gate-" . $i . "'> Gate " . $i;
+                echo "<li id='ship-" . $i . "'>Ship " . $i . " " . $_GET['ship'];
+                echo "</li>";
+                echo "</ul>";
+            }
+                echo "Ship <input type='text' id='ship' name='ship'/>";
+                echo "<input type='submit' name='dock' value='Dock' action='". $_SERVER['PHP_SELF'] ."'/>";
+        }else{
+            echo "<p id='astroport-name'>Astroport</p>";
+
+            for ($i = 1; $i <= 3; $i++){
+                echo "<ul id='gate-" . $i . "'> Gate " . $i;
+                echo "<li id='ship-" . $i . "'>Ship " . $i;
+                echo "</li>";
+                echo "</ul>";
+            }
+                echo "Ship <input type='text' id='ship' name='ship'/>";
+                echo "<input type='submit' name='dock' value='Dock' action='". $_SERVER['PHP_SELF'] ."'/>";
         }
-
-        echo "Ship <input type='text' id='ship' name='ship'/>";
-        echo "<input type='submit' name='dock' value='Dock' action=''/>";
+        
     }
 }
