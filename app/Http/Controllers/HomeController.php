@@ -53,7 +53,7 @@ JSON;
             for ($i = 1; $i <= 3; $i++){
                 echo "<ul id='gate-" . $i . "'> Gate " . $i;
                 if ($i == 1){
-                    echo "<li id='ship-" . $i . "'>Ship " . $i . " " . $_GET['ship'];
+                    echo "<li id='ship-" . $i . "'>" . $_GET['ship'];
                 }else{
                     echo "<li id='ship-" . $i . "'>Ship " . $i;
                 }
