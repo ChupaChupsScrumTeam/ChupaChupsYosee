@@ -49,8 +49,8 @@ JSON;
     {
         echo "<p id='astroport-name'>Astroport</p>";
         for ($i = 1; $i <= 3; $i++){
-            echo "<ul id='gate" . $i . "'> Gate " . $i;
-            echo "<li id='ship" . $i . "'> Ship " . $i . "</li>";
+            echo "<ul id='gate-" . $i . "'> Gate " . $i;
+            echo "<li id='ship-" . $i . "'> Ship " . $i . "</li>";
             echo "</ul>";
         }
     }
