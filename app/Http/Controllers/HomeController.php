@@ -13,17 +13,13 @@ class HomeController extends BaseController
     
     public function primeFactors()
     {
-        header("Content-Type: application/json");
-        
         $number = $_GET["number"];
-        
-        $error = array("number" => $number, "error" => "not a number");
 
         if(!is_numeric($number))
         {
-            
-            echo json_encode($error);
-            return view('primeFactors');
+            $json = array("number" => $number,
+                          "error" => "not a number");
+            return response()->json($json);
         }
 
         $decomposition = array();
@@ -34,14 +30,9 @@ class HomeController extends BaseController
             $decomposition[] = 2;
             $copy = $copy / 2;
         }
-        
-        $decomposition_json = json_encode($decomposition);
-        
-        $json = <<<JSON
-{ "number" : $number , "decomposition" : $decomposition_json }
-JSON;
-        
-        echo $json;
-        return view('primeFactors');
+       
+        $json = array("number" => $number,
+                      "decomposition" => $decomposition);
+        return response()->json($json);
     }
 }
