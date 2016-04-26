@@ -52,12 +52,18 @@ JSON;
 
             for ($i = 1; $i <= 3; $i++){
                 echo "<ul id='gate-" . $i . "'> Gate " . $i;
-                echo "<li id='ship-" . $i . "'>Ship " . $i . " " . $_GET['ship'];
+                if ($i == 1){
+                    echo "<li id='ship-" . $i . "'>Ship " . $i . " " . $_GET['ship'];
+                }else{
+                    echo "<li id='ship-" . $i . "'>Ship " . $i;
+                }
                 echo "</li>";
                 echo "</ul>";
             }
-                echo "Ship <input type='text' id='ship' name='ship'/>";
-                echo "<input type='submit' name='dock' value='Dock' action='". $_SERVER['PHP_SELF'] ."'/>";
+            echo "<form>";
+            echo "Ship <input type='text' id='ship' name='ship'/>";
+            echo "<input type='submit' name='dock' value='Dock' action='#'/>";
+            echo "</form>";
         }else{
             echo "<p id='astroport-name'>Astroport</p>";
 
@@ -67,8 +73,10 @@ JSON;
                 echo "</li>";
                 echo "</ul>";
             }
-                echo "Ship <input type='text' id='ship' name='ship'/>";
-                echo "<input type='submit' name='dock' value='Dock' action='". $_SERVER['PHP_SELF'] ."'/>";
+            echo "<form>";
+            echo "Ship <input type='text' id='ship' name='ship'/>";
+            echo "<input type='submit' name='dock' value='Dock' action='#'/>";
+            echo "</form>";
         }
         
     }
