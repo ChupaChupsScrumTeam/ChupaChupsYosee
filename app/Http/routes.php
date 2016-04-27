@@ -15,6 +15,8 @@ $app->get('/', "HomeController@welcome");
 
 $app->get('/primeFactors', "PrimeFactorController@primeFactors");
 
+$app->get('/primeFactors/ui', "PrimeFactorController@doUi");
+
 $app->get('/ping', "PingController@ping");
 
 $app->get('/astroport', "AstroportController@astroport");

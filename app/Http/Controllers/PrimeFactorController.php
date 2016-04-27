@@ -119,4 +119,9 @@ class PrimeFactorController extends BaseController
         
         return true;
     }
+
+    public function doUi()
+    {
+        return view('primefactorsui');
+    }
 }
