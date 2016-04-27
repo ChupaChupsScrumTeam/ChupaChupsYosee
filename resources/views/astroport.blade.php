@@ -3,17 +3,11 @@
 
     <ul id='gate-1' class='free'> Gate 1
         <li id='ship-1'>Ship 1</li>
-        <li id='ship-2'>Ship 2</li>
-        <li id='ship-3'>Ship 3</li>
     </ul>
     <ul id='gate-2' class='free'> Gate 2
-        <li id='ship-1'>Ship 1</li>
         <li id='ship-2'>Ship 2</li>
-        <li id='ship-3'>Ship 3</li>
     </ul>
     <ul id='gate-3' class='free'> Gate 3
-        <li id='ship-1'>Ship 1</li>
-        <li id='ship-2'>Ship 2</li>
         <li id='ship-3'>Ship 3</li>
     </ul>
     <a id='info' class='hidden'>hello</a>
