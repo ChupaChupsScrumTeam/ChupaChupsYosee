@@ -41,6 +41,13 @@ class PrimeFactorController extends BaseController
             return response()->json($json);
         }
 
+        if($number > 1000000)
+        {
+            $json = array("number" => $number,
+                          "error" => "too big number (>1e6)");
+            return response()->json($json);
+        }
+
         $decomposition = $this->decompose($number);
         
         $json = array("number" => $number,
