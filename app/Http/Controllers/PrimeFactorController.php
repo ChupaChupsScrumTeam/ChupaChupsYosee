@@ -29,30 +29,61 @@ class PrimeFactorController extends BaseController
 
         return $decomposition;
     }
+
+    private function getUriParams()
+    {
+        $uri = $_SERVER['REQUEST_URI'];
+        $justParams = preg_replace('/^.+[?]/', '', $uri);
+        $keyValueStrings = preg_split('/[&]/', $justParams);
+        $params = array();
+        foreach($keyValueStrings as $keyValueString) {
+            $keyValueList = preg_split('/[=]/', $keyValueString);
+            if(count($keyValueList) !== 2) { continue; }
+            $key = $keyValueList[0];
+            $value = $keyValueList[1];
+            $params[] = array('key' => $key, 'value' => $value);
+        }
+        return $params;
+    }
     
     public function primeFactors()
     {
-        $number = $_GET["number"];
+        $params = $this->getUriParams();
 
+        if(count($params) === 1) {
+            $param = $params[0];
+            $json = $this->getDecomOfNumber($param['value']);
+            return response()->json($json);
+        }
+
+        $json = array();
+        foreach($params as $param) {
+            $json[] = $this->getDecomOfNumber($param['value']);
+        }
+        return response()->json($json);
+    }
+
+    private function getDecomOfNumber($number)
+    {
         if(!is_numeric($number))
         {
             $json = array("number" => $number,
                           "error" => "not a number");
-            return response()->json($json);
+            return $json;
         }
 
         if($number > 1000000)
         {
             $json = array("number" => $number,
                           "error" => "too big number (>1e6)");
-            return response()->json($json);
+            return $json;
         }
 
         $decomposition = $this->decompose($number);
         
         $json = array("number" => $number,
                       "decomposition" => $decomposition);
-        return response()->json($json);
+        return $json;
     }
 
     private function getPrimes() {
