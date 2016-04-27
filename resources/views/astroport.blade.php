@@ -30,6 +30,7 @@
         document.getElementById('dock').addEventListener('click', function (e) {
             document.getElementById('ship-1').innerHTML = document.getElementById('ship').value;
             document.getElementById('ship').value = '';
+            document.getElementById('info').className = '';
         })
     </script>
     </form>
