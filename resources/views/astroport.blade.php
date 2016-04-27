@@ -15,7 +15,7 @@
     Ship 
         <input type="text" id="ship" name="ship"/>
     <script>
-        document.getElementById('ship').addEventListener('keydown', function (e) {
+        document.getElementById('ship').addEventListener('input', function (e) {
             document.getElementById('info').className = 'hidden';
         })
     </script>
