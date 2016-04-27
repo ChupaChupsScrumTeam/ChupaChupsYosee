@@ -51,28 +51,31 @@ JSON;
             echo "<p id='astroport-name'>Astroport</p>";
 
             for ($i = 1; $i <= 3; $i++){
-                echo "<ul id='gate-" . $i . "'> Gate " . $i;
                 if ($i == 1){
+                    echo "<ul id='gate-" . $i . "' class='occupied'> Gate " . $i;
                     echo "<li id='ship-" . $i . "'>" . $_GET['ship'];
                 }else{
+                    echo "<ul id='gate-" . $i . "'>Gate " . $i;
                     echo "<li id='ship-" . $i . "'>Ship " . $i;
                 }
                 echo "</li>";
                 echo "</ul>";
             }
+            echo "<a id='info'>hello</a>";
             echo "<form>";
-            echo "Ship <input type='text' id='ship' name='ship'/>";
+            echo 'Ship <input type="text" id="ship" name="ship" onkeypress="document.getElementById("info").className = "hidden""/>';
             echo "<input type='submit' name='dock' value='Dock' action='#'/>";
             echo "</form>";
         }else{
             echo "<p id='astroport-name'>Astroport</p>";
 
             for ($i = 1; $i <= 3; $i++){
-                echo "<ul id='gate-" . $i . "'> Gate " . $i;
+                echo "<ul id='gate-" . $i . "' class='free'> Gate " . $i;
                 echo "<li id='ship-" . $i . "'>Ship " . $i;
                 echo "</li>";
                 echo "</ul>";
             }
+            echo "<a id='info' class='hidden'>hello</a>";
             echo "<form>";
             echo "Ship <input type='text' id='ship' name='ship'/>";
             echo "<button id='dock' action='#'/>Dock</button>";
