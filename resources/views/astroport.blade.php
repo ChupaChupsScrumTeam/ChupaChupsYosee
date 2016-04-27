@@ -25,7 +25,7 @@
             document.getElementById('info').className = 'hidden';
         })
     </script>
-        <input type='button' name='dock' id='dock' value='Dock'/>
+        <button type='button' name='dock' id='dock'>Dock</button>
     <script>
         document.getElementById('dock').addEventListener('click', function (e) {
             document.getElementById('ship-1').innerHTML = document.getElementById('ship').value;
