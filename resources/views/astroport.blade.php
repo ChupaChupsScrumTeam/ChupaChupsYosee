@@ -11,17 +11,18 @@
         <li id='ship-3'>Ship 3</li>
     </ul>
     <a id='info' class='hidden'>hello</a>
-    <form>
+    <form id='form'>
     Ship 
         <input type="text" id="ship" name="ship"/>
     <script>
-        document.getElementById('ship').addEventListener('keydown', function (e) {
+        document.getElementById('ship').addEventListener('input', function (e) {
             document.getElementById('info').className = 'hidden';
         })
     </script>
-        <button type='button' name='dock' id='dock'>Dock</button>
+        <button name='dock' id='dock' method="#">Dock</button>
     <script>
-        document.getElementById('dock').addEventListener('click', function (e) {
+        document.getElementById('form').addEventListener('submit', function (e) {
+            e.preventDefault();
             document.getElementById('ship-1').innerHTML = document.getElementById('ship').value;
             document.getElementById('gate-1').className = 'occupied';
             document.getElementById('ship').value = '';
