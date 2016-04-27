@@ -7,6 +7,7 @@
     </div>
 
 <script type="text/javascript">
+    document.grid = [];
     function load() {
         var data = document.grid;
         var cell = 0;
