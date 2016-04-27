@@ -38,7 +38,12 @@ class PrimeFactorController extends BaseController
         $params = array();
         foreach($keyValueStrings as $keyValueString) {
             $keyValueList = preg_split('/[=]/', $keyValueString);
-            if(count($keyValueList) !== 2) { continue; }
+
+            # skip if improperly formatted
+            if(count($keyValueList) !== 2) { 
+                continue; 
+            }
+
             $key = $keyValueList[0];
             $value = $keyValueList[1];
             $params[] = array('key' => $key, 'value' => $value);
