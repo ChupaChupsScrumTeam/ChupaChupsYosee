@@ -13,7 +13,7 @@
 
 $app->get('/', "HomeController@welcome");
 
-$app->get('/primeFactors', "HomeController@primeFactors");
+$app->get('/primeFactors', "PrimeFactorController@primeFactors");
 
 $app->get('/ping', "PingController@ping");
 
