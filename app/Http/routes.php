@@ -16,3 +16,5 @@ $app->get('/', "HomeController@welcome");
 $app->get('/primeFactors', "PrimeFactorController@primeFactors");
 
 $app->get('/ping', "PingController@ping");
+
+$app->get('/minesweeper', 'MinesweeperController@go');
