@@ -63,7 +63,12 @@ JSON;
             }
             echo "<a id='info'>hello</a>";
             echo "<form>";
-            echo 'Ship <input type="text" id="ship" name="ship" onkeypress="document.getElementById("info").className = "hidden""/>';
+            echo 'Ship <input type="text" id="ship" name="ship"/>';
+            echo "<script>";
+            echo "document.getElementById('ship').addEventListener('keydown', function (e) {";
+            echo "document.getElementById('info').className = 'hidden'";
+            echo "}";
+            echo "</script>";
             echo "<input type='submit' name='dock' value='Dock' action='#'/>";
             echo "</form>";
         }else{

@@ -13,3 +13,9 @@ dependencies:
 general:
   artifacts:
     - "build/coverage/" # relative to the build directory  
+
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: chupa-chups
