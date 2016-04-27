@@ -17,4 +17,4 @@ $app->get('/primeFactors', "PrimeFactorController@primeFactors");
 
 $app->get('/ping', "PingController@ping");
 
-$app->get('/astroport', "HomeController@astroport");
+$app->get('/astroport', "AstroportController@astroport");
