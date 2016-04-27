@@ -1,17 +1,17 @@
 
     <p id='astroport-name'>Astroport</p>
 
-    <ul id='gate-1' class='occupied'> Gate 1
+    <ul id='gate-1' class='free'> Gate 1
         <li id='ship-1'>Ship 1</li>
         <li id='ship-2'>Ship 2</li>
         <li id='ship-3'>Ship 3</li>
     </ul>
-    <ul id='gate-2' class='occupied'> Gate 2
+    <ul id='gate-2' class='free'> Gate 2
         <li id='ship-1'>Ship 1</li>
         <li id='ship-2'>Ship 2</li>
         <li id='ship-3'>Ship 3</li>
     </ul>
-    <ul id='gate-3' class='occupied'> Gate 3
+    <ul id='gate-3' class='free'> Gate 3
         <li id='ship-1'>Ship 1</li>
         <li id='ship-2'>Ship 2</li>
         <li id='ship-3'>Ship 3</li>
@@ -25,10 +25,11 @@
             document.getElementById('info').className = 'hidden';
         })
     </script>
-        <input type='button' name='dock' id='dock' value='Dock' action='#'/>
+        <input type='button' name='dock' id='dock' value='Dock'/>
     <script>
         document.getElementById('dock').addEventListener('click', function (e) {
             document.getElementById('ship-1').innerHTML = document.getElementById('ship').value;
+            document.getElementById('gate-1').className = 'occupied';
             document.getElementById('ship').value = '';
             document.getElementById('info').className = '';
         })
